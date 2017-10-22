@@ -34,7 +34,7 @@ def handle_command(message):
     print("I received a command")
 
 @bot.message_handler(content_types=["text"])
-def handle_command(message):
+def handle_text(message):
     print("I received a text")
     if message.text == "Hi":
         bot.send_message(message.from_user.id, "Hi user!")
@@ -44,19 +44,19 @@ def handle_command(message):
         bot.send_message(message.from_user.id, "I am a InfoBot")
 
 @bot.message_handler(content_types=["document"])
-def handle_command(message):
+def handle_document(message):
     print("I received a document")
 
 @bot.message_handler(content_types=["audio"])
-def handle_command(message):
+def handle_audio(message):
     print("I received a audio")
 
 @bot.message_handler(content_types=["photo"])
-def handle_command(message):
+def handle_photo(message):
     print("I received a photo")
 
 @bot.message_handler(content_types=["sticker"])
-def handle_command(message):
+def handle_sticker(message):
     print("I received a sticker")
 
 bot.polling(none_stop=True, interval=1)
