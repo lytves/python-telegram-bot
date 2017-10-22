@@ -24,35 +24,56 @@ bot = telebot.TeleBot(constants.token)
 # for print the messages of updates to console
 # print(updates)
 
+"""for print last message of the update
 # last_updates = updates[-1]
 # message_from_user = last_updates.message
 
 # print(message_from_user)
+"""
+
+# print to console info about bot
+print(bot.get_me())
+
+# a function "log" for logging a bot job
+def log(message, answer):
+    print("-----------")
+    from datetime import datetime
+    print(datetime.now())
+    print("Message from {0}, {1}, id = {2}\nMessage text: {3}"
+          .format(message.from_user.first_name, message.from_user.last_name,
+                  str(message.from_user.id), message.text))
+    print("Bot answer: " + answer)
+
+
 
 @bot.message_handler(commands=["start"])
 def handle_text(message):
     print("I received a command /start")
-    bot.send_message(message.from_user.id, "Start info of your Bot")
+    bot.send_message(message.from_user.id, constants.start)
 
 @bot.message_handler(commands=["settings"])
 def handle_text(message):
     print("I received a command /settings")
-    bot.send_message(message.from_user.id, "Settings of your Bot")
+    bot.send_message(message.from_user.id, constants.settings)
 
 @bot.message_handler(commands=["help"])
 def handle_text(message):
     print("I received a command /help")
-    bot.send_message(message.from_user.id, "Help info about your Bot")
+    bot.send_message(message.from_user.id, constants.help)
 
 @bot.message_handler(content_types=["text"])
 def handle_text(message):
-    print("I received a text")
+    # print("I received a text")
+
     if message.text == "Hi":
-        bot.send_message(message.from_user.id, "Hi user!")
+        bot.send_message(message.from_user.id, constants.answer_hi)
+        log(message, constants.answer_hi)
     elif message.text == "Bye":
-        bot.send_message(message.from_user.id, "Bye-bye!")
+        bot.send_message(message.from_user.id, constants.answer_bye)
+        log(message, constants.answer_bye)
     else:
-        bot.send_message(message.from_user.id, "I am a InfoBot")
+        bot.send_message(message.from_user.id, constants.answer_default)
+        log(message, constants.answer_default)
 
 @bot.message_handler(content_types=["document"])
 def handle_document(message):
