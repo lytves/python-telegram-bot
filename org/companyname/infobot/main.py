@@ -29,9 +29,20 @@ bot = telebot.TeleBot(constants.token)
 
 # print(message_from_user)
 
-@bot.message_handler(content_types=["commands"])
-def handle_command(message):
-    print("I received a command")
+@bot.message_handler(commands=["start"])
+def handle_text(message):
+    print("I received a command /start")
+    bot.send_message(message.from_user.id, "Start info of your Bot")
+
+@bot.message_handler(commands=["settings"])
+def handle_text(message):
+    print("I received a command /settings")
+    bot.send_message(message.from_user.id, "Settings of your Bot")
+
+@bot.message_handler(commands=["help"])
+def handle_text(message):
+    print("I received a command /help")
+    bot.send_message(message.from_user.id, "Help info about your Bot")
 
 @bot.message_handler(content_types=["text"])
 def handle_text(message):
