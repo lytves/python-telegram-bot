@@ -14,7 +14,12 @@ bot = telebot.TeleBot(constants.token)
 
 # send a message to chat with the number id
 # look your chat id with the method getUpdates from https://api.telegram.org/
-id = 1234567890
+# id = 1234567890
 
-bot.send_message(id, "test from MyBot")
+# bot.send_message(id, "test from MyBot")
 
+# to receive the updates from server
+updates = bot.get_updates()
+
+# for print the messages of updates to console
+print(updates)
