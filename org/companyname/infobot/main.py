@@ -19,12 +19,38 @@ bot = telebot.TeleBot(constants.token)
 # bot.send_message(id, "test from MyBot")
 
 # to receive the updates from server
-updates = bot.get_updates()
+# updates = bot.get_updates()
 
 # for print the messages of updates to console
 # print(updates)
 
-last_updates = updates[-1]
-message_from_user = last_updates.message
+# last_updates = updates[-1]
+# message_from_user = last_updates.message
 
-print(message_from_user)
+# print(message_from_user)
+
+@bot.message_handler(content_types=["commands"])
+def handle_command(message):
+    print("I received a command")
+
+@bot.message_handler(content_types=["text"])
+def handle_command(message):
+    print("I received a text")
+
+@bot.message_handler(content_types=["document"])
+def handle_command(message):
+    print("I received a document")
+
+@bot.message_handler(content_types=["audio"])
+def handle_command(message):
+    print("I received a audio")
+
+@bot.message_handler(content_types=["photo"])
+def handle_command(message):
+    print("I received a photo")
+
+@bot.message_handler(content_types=["sticker"])
+def handle_command(message):
+    print("I received a sticker")
+
+bot.polling(none_stop=True, interval=1)
