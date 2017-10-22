@@ -22,4 +22,9 @@ bot = telebot.TeleBot(constants.token)
 updates = bot.get_updates()
 
 # for print the messages of updates to console
-print(updates)
+# print(updates)
+
+last_updates = updates[-1]
+message_from_user = last_updates.message
+
+print(message_from_user)
