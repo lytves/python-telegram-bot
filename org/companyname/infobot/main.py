@@ -49,17 +49,17 @@ def log(message, answer):
 @bot.message_handler(commands=["start"])
 def handle_text(message):
     print("I received a command /start")
-    bot.send_message(message.from_user.id, constants.start)
+    bot.send_message(message.from_user.id, constants.command_start)
 
 @bot.message_handler(commands=["settings"])
 def handle_text(message):
     print("I received a command /settings")
-    bot.send_message(message.from_user.id, constants.settings)
+    bot.send_message(message.from_user.id, constants.command_settings)
 
 @bot.message_handler(commands=["help"])
 def handle_text(message):
     print("I received a command /help")
-    bot.send_message(message.from_user.id, constants.help)
+    bot.send_message(message.from_user.id, constants.command_help)
 
 @bot.message_handler(content_types=["text"])
 def handle_text(message):
