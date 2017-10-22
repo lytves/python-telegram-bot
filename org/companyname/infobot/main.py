@@ -36,6 +36,12 @@ def handle_command(message):
 @bot.message_handler(content_types=["text"])
 def handle_command(message):
     print("I received a text")
+    if message.text == "Hi":
+        bot.send_message(message.from_user.id, "Hi user!")
+    elif message.text == "Bye":
+        bot.send_message(message.from_user.id, "Bye-bye!")
+    else:
+        bot.send_message(message.from_user.id, "I am a InfoBot")
 
 @bot.message_handler(content_types=["document"])
 def handle_command(message):
