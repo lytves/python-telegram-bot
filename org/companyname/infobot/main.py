@@ -9,6 +9,7 @@ import telebot
 # to import a file with our constants
 from org.companyname.infobot import constants
 
+
 # put Token API of your Telegram Bot to file "constants.py" to variable "token"
 bot = telebot.TeleBot(constants.token)
 
@@ -47,17 +48,25 @@ def log(message, answer):
 
 
 @bot.message_handler(commands=["start"])
-def handle_text(message):
+def handle_start(message):
     print("I received a command /start")
-    bot.send_message(message.from_user.id, constants.command_start)
+
+    # create userkeyboard
+    user_markup = telebot.types.ReplyKeyboardMarkup()
+    user_markup.row("/start", "/stop")
+    user_markup.row("/foto", "/audio", "/documents")
+    user_markup.row("/sticker", "/video", "/voice", "/location")
+
+    # send a message to a user with new keyboard
+    bot.send_message(message.from_user.id, constants.command_start, reply_markup=user_markup)
 
 @bot.message_handler(commands=["settings"])
-def handle_text(message):
+def handle_settings(message):
     print("I received a command /settings")
     bot.send_message(message.from_user.id, constants.command_settings)
 
 @bot.message_handler(commands=["help"])
-def handle_text(message):
+def handle_help(message):
     print("I received a command /help")
     bot.send_message(message.from_user.id, constants.command_help)
 
