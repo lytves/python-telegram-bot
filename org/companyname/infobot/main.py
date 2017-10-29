@@ -51,9 +51,9 @@ def log(message, answer):
 def handle_start(message):
     print("I received a command /start")
 
-    # create userkeyboard
-    user_markup = telebot.types.ReplyKeyboardMarkup()
-    user_markup.row("/start", "/stop")
+    # create userkeyboard, resize = true, autohide=true
+    user_markup = telebot.types.ReplyKeyboardMarkup(True, True)
+    user_markup.row("/start", "/stop", "/help", "/settings")
     user_markup.row("/foto", "/audio", "/documents")
     user_markup.row("/sticker", "/video", "/voice", "/location")
 
