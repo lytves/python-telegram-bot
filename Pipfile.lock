@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "697d95220e38e87b563e5aef02d3ac0ea7d63443c7c6988b8264120bbc77f93e"
+            "sha256": "19828f3c99f0f8875ae41e56166508bb985163a5d3f3018a197af1026af9983b"
         },
         "host-environment-markers": {
             "implementation_name": "cpython",
@@ -18,7 +18,8 @@
         },
         "pipfile-spec": 6,
         "requires": {
-            "pyTelegramBotAPI": "3.2.1"
+            "pyTelegramBotAPI": "3.2.1",
+            "python_version": "3.6"
         },
         "sources": [
             {
